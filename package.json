@@ -2,11 +2,23 @@
   "name": "api-discord",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "dev": "ts-node src/index.ts",
+    "start": "ts-node src/index.ts && node .",
+    "build": "tsc src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1",
+    "@types/node": "^20.11.24",
+    "discord.js": "^14.14.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
 }
