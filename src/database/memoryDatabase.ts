@@ -30,12 +30,8 @@ export class MemoryDatabase {
 
   public setNewHistory(id: string, content: MemoryProps) {
     const database = this.getHistoryById(id);
-    if (database) {
-      const newData = [...database, content];
-      this.localDatabase.set(id, newData);
-      return;
-    }
-    const newData = [content];
+
+    const newData = [...database!, content];
     this.localDatabase.set(id, newData);
   }
 

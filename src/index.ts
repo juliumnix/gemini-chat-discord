@@ -1,4 +1,3 @@
-import { Client, GatewayIntentBits, Message, Routes } from "discord.js";
 import { BotController } from "./controller/botController";
 
 const TOKEN =
@@ -7,11 +6,12 @@ const CLIENT_ID = "1213491747435315330";
 
 async function main() {
   try {
-    console.log("Started refreshing application (/) commands");
+
     const bot = new BotController({token: TOKEN, clientId: CLIENT_ID});
     
     bot.initListeners();
     bot.login();
+    console.log("Started refreshing application (/) commands");
   } catch (error) {
     console.error(error);
   }
