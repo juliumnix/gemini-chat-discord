@@ -1,9 +1,9 @@
-interface MemoryProps {
+export interface MemoryProps {
   role: RoleTypes;
   parts: string;
 }
 
-type RoleTypes = "user" | "model";
+export type RoleTypes = "user" | "model";
 
 export class MemoryDatabase {
   private static instance: MemoryDatabase;
