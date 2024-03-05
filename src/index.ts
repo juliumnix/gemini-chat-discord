@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, Routes } from "discord.js";
+import { Client, GatewayIntentBits, Message, Routes } from "discord.js";
 import { REST } from "@discordjs/rest";
 import { MemoryDatabase } from "./database/memoryDatabase";
 import { requestGemini } from "./service/requestGeminiData";
@@ -42,8 +42,9 @@ client.on("guildCreate", async (guild) => {
     "Olá! Eu sou o seu novo bot. Qual prompt você gostaria de definir?"
   );
 
-  const filter = (m: any) =>
+  const filter = (m: Message) =>
     m.author.id === guild.ownerId && m.channel.id === guild.systemChannelId;
+
   const collector = guild.systemChannel?.createMessageCollector({
     filter,
     max: 1,
@@ -54,8 +55,6 @@ client.on("guildCreate", async (guild) => {
     const prompt = m.content;
     console.log(`Prompt definido para o servidor ${guild.name}: ${prompt}`);
     database.createNewHistory(idGuild, prompt);
-    console.log(m.author.id);
-    console.log(idGuild);
 
     collector.stop();
   });
