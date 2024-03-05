@@ -56,7 +56,7 @@ client.on("guildCreate", async (guild) => {
     database.createNewHistory(idGuild, prompt);
     console.log(m.author.id);
     console.log(idGuild);
-    
+
     collector.stop();
   });
 
@@ -75,19 +75,18 @@ client.on("guildCreate", async (guild) => {
   });
 });
 
-client.on('interactionCreate', async (interaction) => {
+client.on("interactionCreate", async (interaction) => {
   if (interaction.isChatInputCommand()) {
     await interaction.deferReply();
 
-    const msg = interaction.options.get('text')!.value;
+    const msg = interaction.options.get("text")?.value as string;
 
     try {
-      const result = await requestGemini(msg?.toString()!, interaction.guild?.id!);
-      console.log(result);
+      const result = await requestGemini(msg, interaction.guild?.id!);
       await interaction.editReply({ content: result });
     } catch (error) {
       await interaction.editReply({
-        content: `Ops, não consegui fazer nada com o prompt "${msg}"`
+        content: `Ops, não consegui fazer nada com o prompt "${msg}"`,
       });
       console.error(error);
     }

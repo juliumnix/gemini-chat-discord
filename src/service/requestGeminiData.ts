@@ -21,7 +21,7 @@ const requestGemini = async (message: string, id: string): Promise<string> => {
     console.log(database)
     return text;
   } catch (error) {
-    return "";
+    return `Ocorreu um erro - ${error}`;
   }
 };
 
