@@ -116,7 +116,6 @@ export class BotController {
     const idGuild = guild.id;
     collector?.on("collect", async (message) => {
       const prompt = message.content;
-      console.log(`Prompt definido para o servidor ${guild.name}: ${prompt}`);
       this.database.createNewHistory(idGuild, prompt);
 
       collector.stop();

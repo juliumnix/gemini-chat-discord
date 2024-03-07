@@ -8,14 +8,16 @@
     "start": "ts-node src/index.ts && node .",
     "production": "node dist/src/index.js",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:debug": "node --inspect ./node_modules/.bin/jest --verbose"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
